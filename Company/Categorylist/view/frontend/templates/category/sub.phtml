@@ -1,0 +1,28 @@
+<?php $categories = $block->getCategoryList(); ?>
+<div class="page-title-wrapper category-title-wrapper">
+    <h2 class="page-title category-title">
+        <span class="base"><?php echo __('By Categories') ?></span>
+    </h2>
+</div>
+<div class="products wrapper grid products-grid subcategories-listing">
+    <ol class="products list items product-items">
+        <?php foreach ($categories as $category): ?>
+            <li class="item product product-item">
+                <div class="product-item-info">
+
+                    <?php if ($category['thumbnail']): ?>
+                        <a href="<?php echo $category->getUrl() ?>" title="<?php echo $category->getName() ?>"><img src="<?php echo $block->getCategoryThumbImage($category['thumbnail']); ?>" height="170" width="170" /></a>
+                    <?php else: ?>
+                        <a href="<?php echo $category->getUrl() ?>" title="<?php echo $category->getName() ?>"><img src="<?php echo $block->getViewFileUrl($block->getPlaceholderImage()); ?>" height="170" width="170" /></a>
+                    <?php endif; ?>
+
+                    <div class="product details product-item-details">
+                        <strong class="product name product-item-name category-item-name">
+                            <a href="<?php echo $category->getUrl() ?>" title="<?php echo $category->getName() ?>"><?php echo $category->getName() ?></a>
+                        </strong>
+                    </div>
+                </div>
+            </li>
+        <?php endforeach; ?>
+    </ol>
+</div>
