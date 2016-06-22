@@ -19,7 +19,6 @@ class View extends \Magento\Catalog\Block\Category\View
         parent::__construct($context, $layerResolver, $registry, $categoryHelper,$data);
         $this->_categoryFactory = $categoryFactory;
         $this->image = $image;
-        $this->_collectionFactory = $collectionFactory;
      }
 
     public function getCategoryList()
